@@ -1,0 +1,16 @@
+<template>
+  <header>
+    header
+  </header>
+  <div>
+    <aside>
+      side
+    </aside>
+    <main>
+      <slot></slot>
+    </main>
+  </div>
+  <footer>
+    footer
+  </footer>
+</template>

@@ -1,0 +1,1 @@
+import Promise1 from './promise.js'
