@@ -1,22 +1,65 @@
 <template>
-  Home
-  <button @click="onClick1">getMenus</button>
-  <button @click="onClick2">getUserInfo</button>
-  <h1>{{ userInfo }}</h1>
-  <ul>
-    <li v-for="menu of menus">
-      {{  menu.navName }}
-    </li>
-  </ul>
+  <slide>
+    <slide-item>1</slide-item>
+    <slide-item>2</slide-item>
+    <slide-item>3</slide-item>
+    <slide-item>4</slide-item>
+    <slide-item>5</slide-item>
+    slider
+  </slide>
 </template>
 <script setup lang="ts">
-const { data: userInfo, refresh: getUserInfo} = useFetch('http://localhost:5000/userinfo')
-const { data, refresh } = useFetch('http://localhost:5000/menus')
-const menus = computed( () => data.value?.data.parent)
-const onClick1 = () => {
-  refresh()
-}
-const onClick2 = () => {
-  getUserInfo()
-}
+// import SlideItem from '@/components/Slide/item'
 </script>
+<style>
+  .slide-wrapper {
+    margin: 0 auto;
+    width: 80vw;
+    display: flex;
+    background-color: cadetblue;
+    overflow: hidden;
+  }
+  .slide{
+    display: flex;
+    /* column-gap: 20px; */
+  }
+  .slide-item {
+    height: 300px;
+  }
+  .slide-item:nth-child(1){
+    background-color: chocolate;
+    width: 500px;
+  }
+  .slide-item:nth-child(2){
+    background-color: green;
+    width: 200px;
+  }
+  .slide-item:nth-child(3){
+    background-color: coral;
+    width: 400px;
+  }
+  .slide-item:nth-child(4){
+    background-color: cornflowerblue;
+    width: 500px;
+  }
+  .slide-item:nth-child(5){
+    background-color: violet;
+    width: 350px;
+  }
+  .slide-dots {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
+  }
+  .slide-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+  }
+  .slide-dot.active {
+    background-color: cadetblue
+  }
+</style>
